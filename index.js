@@ -6,10 +6,10 @@ const fileName = "README.md";
 // TODO: Create an array of questions for user input
 const questions = [
     "What is the title of the project?",
-    "Write a detailed statment about who the intended user would be!",
-    "Write a overview of the functionality, and uses for the application!",
-    "Whare are the primary features of the application?",
-    "List the dependancies.",
+    "Write a detailed description about the project!",
+    "",
+    "List the installation steps to use the project",
+    "What are the use cases for this application?",
     "What license did you use?",
     "How would you like to be addressed in the contributer section?"
 ];
@@ -27,22 +27,22 @@ inquirer.prompt([
     {
         type:"input",
         message:questions[1],
-        name:"intendedUser",
+        name:"description",
     },
     {
         type:"input",
         message:questions[2],
-        name:"functionality",
+        name:"tableofcontents",
     },
     {
         type:"input",
         message:questions[3],
-        name:"features",
+        name:"installation",
     },
     {
         type:"input",
         message:questions[4],
-        name:"dependencies",
+        name:"usage",
     },
     {
         type:"input",
@@ -60,25 +60,41 @@ inquirer.prompt([
 `
 # ${response.title}
 
-## Intended user:
-${response.intendedUser}
-    
-## Overview:
-${response.functionality}
-    
-## Features:
-${response.features}
-    
-## Dependencies:
-${response.dependencies}
+# Table of Contents:
+
+1. [Description](#Description)
+2. [Installation](#Installation)
+3. [Usage](#Usage)
+4. [Contributors](#Contributors)
+5. [License](#License)
+6. [Tests](#Tests)
+7. [Questions](#Questions)
+
+# Description
+${response.description}
     
 
-## Contributors:
+    
+# Installation
+${response.installation}
+    
+# Usage
+${response.usage}
+    
+
+# Contributors
 ${response.contributer}
     
-## License:
+# License
     
 [${response.license} LICENSE](LICENSE.txt)
+
+
+# Tests
+
+# Questions
+
+
     
  `, (error) =>
     error ? console.log(error) : console.log("commit logged!")
