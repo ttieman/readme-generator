@@ -1,13 +1,12 @@
-// TODO: Include packages needed for this application
 
-const inquirer = require('inquirer');
+const inquirer = require('inquirer');   // these are variable for imports handled by the software
 const fs = require('fs');
 const generateMarkdown = require( "./utils/generateMarkdown" );
 
 
-const fileName = "README.md"; 
-// TODO: Create an array of questions for user input
-const questions = [
+const fileName = "GENERATEDREADME.md";     //this is file name const 
+
+const questions = [                             //array of questions for the software to prompt the user
     "What is the title of the project?",
     "Write a detailed description about the project!",
     "What is your Github Username?",
@@ -23,13 +22,11 @@ const questions = [
 
 
 
-    // TODO: Create a function to write README file
-    
-    // TODO: Create a function to initialize app
-    function generate(){
+   
+    function generate(){    // this is the function that prompts the user then generates the file
     inquirer.prompt([
         {   
-            type:"input",
+            type:"input",                   //each question is an object calling the inquirer.prompt function
             message:questions[0],
             name:"title",
         },
@@ -69,18 +66,18 @@ const questions = [
             message:questions[7],
             name:"tests",
         },
-    ]).then((response) => {
-        fs.writeFile(fileName, generateMarkdown(response), (error) => {
-            if (error) {
+    ]).then((response) => {   // after all the questions asked it will call a .then funtion that will handle the responses given in the prompt
+        fs.writeFile(fileName, generateMarkdown(response), (error) => {  // this line will write the file using the responses and a generate markdown function i wrote and am importing
+            if (error) {    // this is general error handling
                 console.log(error);
             } else {
-                console.log("commit logged!");
+                console.log("commit logged!");   // this is conformation that the software was ran succesfully and the file has been generated 
          }
        });
     })
 }
-    function init() {
+    function init() {   // this function is ran that will start and handle all of the functions of the software
         generate();
 }
-// Function call to initialize app
-init();
+
+init();  // call init

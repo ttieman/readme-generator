@@ -1,13 +1,12 @@
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {
+
+function renderLicenseBadge(license) {   // this function renders the license badges
 
   var badge = `![${license}](https://img.shields.io/badge/License-${license}-blue.svg)`;
   return badge;
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
+
+function renderLicenseLink(license) { //this function renders the links for the license and return a empty string if no response was given
   if (license !== ""){
    var licLink = `(https://opensource.org/licenses/${license})}`;
    return licLink;
@@ -17,9 +16,9 @@ function renderLicenseLink(license) {
 }
 
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  var lic = data.license
+
+function generateMarkdown(data) {    // this is the function that will generate all the markdown with all the appropriate data in in place this template is for general use and can be changed 
+  var lic = data.license              // to best fit the users needs
   return `
 
 
@@ -29,41 +28,59 @@ function generateMarkdown(data) {
   
 # Table of Contents:
   
-  1. [Description](#Description)
-  2. [Installation](#Installation)
-  3. [Usage](#Usage)
-  4. [Contributors](#Contributors)
-  5. [License](#License)
-  6. [Tests](#Tests)
-  7. [Questions](#Questions)
+  1. [Description](#description)
+  2. [Installation](#installation)
+  3. [Usage](#usage)
+  4. [Contributors](#contributors)
+  5. [License](#license)
+  6. [Tests](#tests)
+  7. [Questions](#questions)
   
-## Description <a name="Description"></a>
-  ${data.description}
-      
-  
-      
-## Installation <a name="Installation"></a>
-  ${data.installation}
-      
-## Usage <a name="Usage"></a>
-  ${data.usage}
+## Description 
+
+<a name="description"></a>
+
+${data.description}
       
   
-## Contributors <a name="Contributors"></a>
+      
+## Installation 
+
+<a name="installation"></a>
+ 
+${data.installation}
+      
+## Usage 
+
+<a name="usage"></a>
+ 
+${data.usage}
+      
+  
+## Contributors 
+
+<a name="contributors"></a>
 
  ${data.github}
   
-## License <a name="License"></a>
-  ### This application is covered under the [${data.license} LICENSE]${renderLicenseLink(lic)},
+## License 
+
+<a name="license"></a>
+ 
+### This application is covered under the [${data.license} LICENSE]${renderLicenseLink(lic)},
   and should be referred to for any questions about legal licensure considering 
   this application. 
   
   
-## Tests <a name="Tests"></a>
+## Tests 
+
+<a name="tests"></a>
 
 ### ${data.tests}
   
-## Questions <a name="Questions"></a>
+## Questions 
+
+<a name="questions"></a>
   
 ### If you have and questions my git hub user is [${data.github}](https://github.com/${data.github})
   
@@ -76,4 +93,4 @@ function generateMarkdown(data) {
 
 }
 
-module.exports = generateMarkdown;
+module.exports = generateMarkdown;   // this exports the generate markdown function to be imported in index.js
