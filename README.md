@@ -67,8 +67,7 @@ It gives option for what license you want to you and prompts the user for their 
 
 <a name="link"></a>
 
-To The Website
- []()
+
 
 To the Repo 
 [https://github.com/ttieman/readme-generator](https://github.com/ttieman/readme-generator)  
